@@ -8,13 +8,13 @@ import (
 )
 
 func main() {
-	m := http.NewServeMux()
+	multiplexor := http.NewServeMux()
 
-	m.HandleFunc("/", handlePage)
+	multiplexor.HandleFunc("/", handlePage)
 
 	const addr = ":8080"
 	srv := http.Server{
-		Handler:      m,
+		Handler:      multiplexor,
 		Addr:         addr,
 		WriteTimeout: 30 * time.Second,
 		ReadTimeout:  30 * time.Second,
