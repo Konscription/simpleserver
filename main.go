@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -12,7 +13,8 @@ func main() {
 
 	multiplexor.HandleFunc("/", handlePage)
 
-	const addr = ":8080"
+	var addr = ":" + os.Getenv("PORT")
+
 	srv := http.Server{
 		Handler:      multiplexor,
 		Addr:         addr,
