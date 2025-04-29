@@ -5,3 +5,6 @@ COPY simpleserver /bin/simpleserver
 
 #start app on container start
 CMD ["/bin/simpleserver"]
+
+ENV PORT=8080
+
